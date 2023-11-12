@@ -1,0 +1,42 @@
+
+/* Style the menu container */
+#sidemenu {
+    width: 250px; /* Adjust the width as needed */
+    background-color: #333; /* Background color for the menu */
+    color: #fff; /* Text color for menu items */
+    height: 100%; /* Make the menu take up full height */
+    position: fixed; /* Fixed position to keep it on the left */
+}
+
+/* Style the menu items */
+#sidemenu ul {
+    padding: 20px 0; /* Add some padding to the top */
+}
+
+#sidemenu li {
+    padding: 10px 0;
+    text-align: center;
+}
+
+#sidemenu a {
+    text-decoration: none;
+    color: #fff;
+    display: block; /* Make the entire list item clickable */
+}
+
+/* Add hover effect */
+#sidemenu a:hover {
+    background-color: #555; /* Change background color on hover */
+}
+
+#sidemenu h1 {
+    text-align: center;
+}
+
+#sidemenu input {
+    width: 200px;
+    height: 20px;
+    padding: 5px;
+    margin-left: 18px;
+    text-align: center;
+}

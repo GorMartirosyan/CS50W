@@ -1,0 +1,24 @@
+{% extends "Wiki/base.html" %}
+{% load static %}
+
+{% block content_css %} <link rel="stylesheet" href="{% static "wiki/page_details.css" %}"> {% endblock %}
+{% block title %}
+{% for key, value in element.items %}
+    {{key}}
+{% endfor %}
+{% endblock title  %}
+{% block body %}
+    <div id="content">
+        {% for key, value in element.items %}
+            <h1>{{key}}</h1><br>
+            <p>{{value}}</p>
+        {% endfor %}
+    </div>
+    <br>
+    <div>
+        {% for key, value in element.items %}
+        <a href="{% url 'wiki:edit' key %}" class="edit-btn">Edit</a>
+        <a href="{% url 'wiki:delete' key %}" class="delete-btn">Delete</a>
+        {% endfor %}
+    </div>
+{% endblock body %}

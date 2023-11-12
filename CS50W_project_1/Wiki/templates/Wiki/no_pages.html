@@ -1,0 +1,10 @@
+{% extends "Wiki/base.html" %}
+{% load static %}
+
+{% block content_css %} <link rel="stylesheet" href="{% static "wiki/no_pages.css" %}"> {% endblock %}
+{% block title %} Wikipedia {% endblock title  %}
+{% block body %}
+    <div id="content">
+        <h1>No page created for {{element}}</h1>
+    </div>
+{% endblock body %}

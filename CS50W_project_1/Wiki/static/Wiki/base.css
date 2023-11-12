@@ -1,0 +1,32 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the content container */
+.content {
+    margin-left: 250px; /* Match the menu width for proper alignment */
+    padding: 20px; /* Add some padding to the content */
+}
+
+/* Add a smooth transition effect */
+.menu, .content {
+    transition: margin-left 0.3s;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+    .menu {
+        width: 100%; /* Full width for smaller screens */
+        margin-left: -250px; /* Hide the menu off-screen */
+    }
+
+    .content {
+        margin-left: 0; /* Reset margin for content */
+    }
+
+    /* Show the menu when a button is clicked */
+    .menu.active {
+        margin-left: 0;
+    }
+}

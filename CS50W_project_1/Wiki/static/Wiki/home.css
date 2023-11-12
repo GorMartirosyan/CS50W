@@ -1,0 +1,7 @@
+
+/* Reset some default styles for the list */
+#content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}

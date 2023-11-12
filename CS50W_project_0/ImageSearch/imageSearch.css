@@ -1,0 +1,58 @@
+body{
+    background-color: rgb(42, 41, 41);
+}
+form{
+    width: 80%;
+    color: white;
+    font-size: 60px;
+    margin: 200px auto;
+    display: grid;
+    align-items: center;
+}
+form h2 {
+    margin: 0%;
+    text-align: center;
+}
+
+form input {
+    width: 70%;
+    height: 40px;
+    border-radius: 15px;
+    border: 1px solid rgb(134, 133, 133);
+    padding: 0px 10px;
+    margin: 30px auto 0px auto;
+    background-color: rgb(62, 61, 61);
+    color: white;
+    outline: none;
+}
+
+form button {
+    background-color: rgb(62, 61, 61);
+    border: 1px solid rgb(134, 133, 133);
+    border-radius: 5px;
+    color: white;
+    height: 35px;
+    width: 150px;
+}
+form div{
+    display: flex;
+    align-content: center;
+    margin-top: 20px;
+    justify-content: center;
+    gap: 10px;
+}
+
+a {
+    color: rgb(134, 133, 133);
+    transition-duration: 0.3s;
+}
+
+a:hover{
+    color: white;
+}
+
+#links-div{
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+}

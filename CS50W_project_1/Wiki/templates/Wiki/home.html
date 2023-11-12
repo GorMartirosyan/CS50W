@@ -1,0 +1,21 @@
+{% extends "Wiki/base.html" %}
+{% load static %}
+
+{% block content_css %} <link rel="stylesheet" href="{% static "wiki/home.css" %}"> {% endblock %}
+{% block title %} Wikipedia {% endblock title  %}
+{% block body %}
+    <div id="content">
+        {% if query %}
+            <h1>Search results for: {{query}}</h1>
+        {% else %}
+            <h1>All pages</h1>
+        {% endif %}
+        <ul>
+            {% for key in pages %}
+                <li><a href="{% url "wiki:details" key %}">{{key}}</a></li>
+            {% empty %}
+                No pages yet.
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock body %}

@@ -1,0 +1,40 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>{% block title %} {% endblock %} </title>
+    <link rel="stylesheet" href="{% static 'wiki/base.css' %}">
+    {% block content_css %}{% endblock %}
+</head>
+
+<body>
+
+<!--************Wrapper************-->
+    <div class="wrapper">
+
+
+
+        <!--************SideBar************-->
+        <div class='menu'>
+            {% include 'Wiki/sidemenu.html' %}
+        </div>
+        <!--************End SideBar************-->
+
+
+
+        <!--************Content************-->
+        <div class="content">
+            {% block body %} {% endblock %}
+        </div>
+        <!--************End Content************-->
+
+
+
+    </div>
+<!--************End Wrapper************-->        
+
+</body>
+
+</html>

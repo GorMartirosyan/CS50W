@@ -1,0 +1,35 @@
+#new-page-title{
+    display: block;
+    width: 400px;
+    height: 20px;
+    padding: 5px;
+}
+
+#new-page-desc {
+    display: block;
+    width: 600px;
+    height: 400px;
+    padding: 5px;
+}
+
+#new-page-submit {
+    background-color: rgb(0, 72, 135);
+    color: white;
+    width: 200px;
+    height: 40px;
+    margin-top: 30px;
+    border: none;
+    border-radius: 3px;
+}
+
+.errorlist {
+    color: red; /* Change the color of the error messages */
+    list-style-type: none; /* Remove bullet points */
+    margin: 0; /* Adjust margin */
+    padding: 0; /* Adjust padding */
+}
+
+/* Style each individual error message */
+.errorlist li {
+    font-style: normal; /* normal the error messages */
+}

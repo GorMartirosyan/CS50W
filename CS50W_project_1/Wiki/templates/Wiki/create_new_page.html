@@ -1,0 +1,53 @@
+{% extends "Wiki/base.html" %}
+{% load static %}
+
+{% block content_css %} <link rel="stylesheet" href="{% static "wiki/create_new_page.css" %}"> {% endblock %}
+
+{% block title %} 
+    {% if is_edit %}
+            Edit Page
+        {% else %}
+            Create New Page
+        {% endif %}
+ {% endblock title  %}
+
+{% block body %}
+    <div id="content">
+        {% if is_edit %}
+            <h1>Edit Page</h1><br>
+
+            <form action="{% url 'wiki:edit' form.title.value %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+
+                {% if form.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error | safe}}</li>
+                        {% endfor %}
+                  </ul>
+                {% endif %}
+
+                <input type="submit" id='new-page-submit'>
+            </form>    
+        {% else %}
+            <h1>Create New Page</h1><br>
+
+            <form action="{% url 'wiki:create_new_page' %}" method="post">
+                {% csrf_token %}
+                {{ form }}
+
+                {% if form.errors %}
+                    <ul class="errorlist">
+                        {% for error in form.non_field_errors %}
+                            <li>{{ error | safe}}</li>
+                        {% endfor %}
+                  </ul>
+                {% endif %}
+
+                <input type="submit" id='new-page-submit'>
+            </form>        
+        {% endif %}
+    </div>
+    
+{% endblock body %}

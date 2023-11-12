@@ -1,0 +1,14 @@
+{% load static %}
+<link href="{% static 'wiki/sidemenu.css' %}" rel="stylesheet">
+
+<div id="sidemenu">
+    <a href="{% url 'wiki:home' %}"><h1>Wiki</h1></a><br>
+    <form method="GET" action="{% url 'wiki:search' %}">
+        <input type="text" name="q" placeholder="Search...">
+    </form>
+    <ul>
+        <li><a href="{% url 'wiki:home' %}">Home</a></li>
+        <li><a href="{% url 'wiki:create_new_page' %}">Create New Page</a></li>
+        <li><a href="{% url 'wiki:random' %}">Random page</a></li>
+    </ul>
+</div>
