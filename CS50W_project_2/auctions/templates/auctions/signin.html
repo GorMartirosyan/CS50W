@@ -1,0 +1,29 @@
+{% extends "auctions/base.html" %}
+{% load static %}
+
+<!--************ Title ************-->
+{% block title %}
+    Sign in
+{% endblock title %}
+
+<!--************ CSS ************-->
+{% block css %} 
+    {% static "auctions/css/signin.css" %}
+{% endblock css %}
+
+<!--************ Body ************-->
+{% block main %}
+    <h1>Sign in</h1>
+    
+    <form action="{% url 'signin' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <input autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <input type="submit" value="Login">
+    </form>
+
+{% endblock main %}

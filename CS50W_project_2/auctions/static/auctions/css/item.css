@@ -1,0 +1,104 @@
+.inner-title{
+    margin: 20px;
+    color: rgb(32, 9, 9);
+}
+
+.item-details {
+    display: flex;
+    justify-content: flex-start;
+    margin: 20px;
+}
+
+.item-image-container {
+    width: 750px; /* Set the maximum width of the container */
+    height: 500px; /* Set the maximum height of the container */
+    overflow: hidden; /* Hide any content that overflows the container */
+}
+
+.item-image{
+    width: auto; /* Allow the image to scale based on its natural width */
+    height: auto; /* Allow the image to scale based on its natural height */
+    width: 100%; /* Ensure the image doesn't exceed the width of the container */
+    height: 100%; /* Ensure the image doesn't exceed the height of the container */
+    display: block; /* Remove extra spacing and align the image properly */
+    margin: 0 auto; /* Center the image horizontally within the container */
+}
+
+.item-description{
+    margin: 0px 20px;
+}
+
+.checkmark-image {
+    padding: 0px;
+    margin: 0px;
+    width: 50px;
+    height: 50px;
+    margin-left: -10px;
+}
+
+.available-p{
+    color: green;
+}
+
+.not-available-p{
+    color: red;
+}
+
+.coment-form-text-row{
+    width: 500px;
+    height: 100px;
+    resize: none;
+    padding: 5px;
+    display: block;
+}
+
+.comment-form-submit{
+    background-color: #4A90E2;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    margin-top: 5px;
+}
+
+.bid-button{
+    color: white;
+    background-color: brown;
+    padding: 5px;
+    border: none;
+    margin: 0px;
+    height: 32.5px;
+    font-size: 16px;
+}
+
+.bid-input{
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 0px;
+    border: 1px solid gray;
+}
+
+.bid-form{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    gap: 5px;
+}
+
+.bid-counter{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: brown;
+}
+.username-label{
+    color: white;
+    background-color: brown;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.comment-date-label{
+    font-size: 12px;
+    color: gray;
+}

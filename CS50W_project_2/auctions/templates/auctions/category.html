@@ -1,0 +1,52 @@
+{% extends "auctions/base.html" %}
+{% load static %}
+
+<!--************ Title ************-->
+{% block title %}
+    {{category}}
+{% endblock title %}
+
+<!--************ CSS ************-->
+{% block css %}
+    {% static "auctions/css/category.css" %}
+{% endblock css %}
+
+<!--************ Body ************-->
+{% block main %}
+    <h1 class="inner-title">{{category}}</h1>
+
+    {% for auctionItem in auctionItems %}
+    <div class="auction-item">
+            {% if auctionItem in user.watchlist.all %}
+                <a href="{% url 'unwatch' auctionItem.id %}">
+                    <img src="{% static "auctions/images/mark_checked.png" %}" class="checkmark-image">
+                </a>    
+            {% else %}
+                <a href="{% url 'watch' auctionItem.id %}">
+                    <img src="{% static "auctions/images/mark_unchecked.png" %}" class="checkmark-image">
+                </a>    
+            {% endif %}
+            <div class = "item-image-container">
+                <a href="{% url 'item' auctionItem.id %}">
+                    <img src="{{ auctionItem.image_url }}" class="item-image">
+                </a>    
+            </div>
+            <div class="item-description">
+                <span>Name:</span> <a href="{% url 'item' auctionItem.id %}">{{auctionItem.title}}</a>
+                <p>Description: {{auctionItem.description}}</p>
+                <p>Owner: {{auctionItem.owner}}</p>
+                <p>Category: {{auctionItem.category}}</p>
+                <p>Price: {{auctionItem.price}}</p>
+
+                {% if auctionItem.active %}
+                    <span>Status: </span> <span class="available-p">Available</span>
+                {% else %}
+                    <span>Status: </span> <span class="not-available-p">Not available</span>
+                {% endif %}
+
+                <p>Posted at: {{auctionItem.created_at}}</p>
+            </div>
+    </div>
+{% endfor %}
+
+{% endblock main %}

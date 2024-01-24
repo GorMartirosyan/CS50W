@@ -1,0 +1,58 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %}</title>
+    <link rel="stylesheet" href="{% static 'auctions/css/base.css' %}">
+    <link rel="stylesheet" href="{% block css %}{% endblock %}">
+    <link rel="icon" type="image/png" href="{% static 'auctions/images/favicon.png' %}">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <nav class="navigation">
+
+            <div class="menu">
+            <a href="{% url "home" %}">Active listing</a>
+            <a href="{% url "categories" %}">Categories</a>
+            {% if user.is_authenticated %}
+                <a href="{% url "watchlist" %}">Watchlist <span class="watchlist-counter">{{ user.watchlist_count }}</span> </a>
+                <a href="{% url "create" %}">Create listing</a>
+            {% endif %}
+            </div>
+
+            <div class="login_darkLight">
+                {% if user.is_authenticated %}
+                    <div class="dropdown">
+                        <button class="dropbtn">Signed in as <strong>{{user.username}}</strong>.</button>
+                        <div class="dropdown-content">
+                            <a href="{% url "logout" %}">Log out</a>
+                            <a href="{% url "watchlist" %}">Watchlist  <span class="watchlist-counter">{{ user.watchlist_count }}</span> </a>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="dropdown">
+                        <button class="dropbtn">You are not signed in.</button>
+                        <div class="dropdown-content">
+                            <a href="{% url "signin" %}">Sign in</a>
+                            <a href="{% url "register" %}">Register</a>
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </nav>
+
+    </header>
+
+    <main>
+        {% block main %}{% endblock main %}
+    </main>
+
+</body>
+</html>

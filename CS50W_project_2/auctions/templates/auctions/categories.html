@@ -1,0 +1,22 @@
+{% extends "auctions/base.html" %}
+{% load static %}
+
+<!--************ Title ************-->
+{% block title %}
+    Categories
+{% endblock title %}
+
+<!--************ CSS ************-->
+{% block css %}
+    {% static "auctions/css/categories.css" %}
+{% endblock css %}
+
+<!--************ Body ************-->
+{% block main %}
+    <h1 class="inner-title">Categories</h1>
+    <div>
+    {% for category in categories %}
+        <a class="category-link" href="{% url 'category' category %}">{{category}}</a>
+    {% endfor %}
+    </div>
+{% endblock main %}

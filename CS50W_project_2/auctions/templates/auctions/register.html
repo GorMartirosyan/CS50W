@@ -1,0 +1,35 @@
+{% extends "auctions/base.html" %}
+{% load static %}
+
+<!--************ Title ************-->
+{% block title %}
+    Register
+{% endblock title %}
+
+<!--************ CSS ************-->
+{% block css %} 
+    {% static "auctions/css/register.css" %}
+{% endblock css %}
+
+<!--************ Body ************-->
+{% block main %}
+    <h1>Register</h1>
+
+    <form action="{% url 'register' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <input class="form-control" autofocus type="text" name="username" placeholder="Username">
+        </div>
+        <div >
+            <input type="email" name="email" placeholder="Email Address">
+        </div>
+        <div>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+        <div >
+            <input type="password" name="confirmation" placeholder="Confirm Password">
+        </div>
+        <input type="submit" value="Register">
+    </form>
+
+{% endblock main %}

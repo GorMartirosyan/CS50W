@@ -1,0 +1,116 @@
+{% extends "auctions/base.html" %}
+{% load static %}
+
+<!--************ Title ************-->
+{% block title %}
+    {{item.title}}
+{% endblock title %}
+
+<!--************ CSS ************-->
+{% block css %}
+    {% static "auctions/css/item.css" %}
+{% endblock css %}
+
+<!--************ Body ************-->
+{% block main %}
+    <h1 class="inner-title">{{item.title}}</h1>
+
+    <div class="item-details">
+            <div class = "item-image-container">
+                <img src="{{ item.image_url }}" class="item-image">
+            </div>
+
+            <div class="item-description">
+                {% if item in user.watchlist.all %}
+                    <a href="{% url 'unwatch' item.id %}">
+                        <img src="{% static "auctions/images/mark_checked.png" %}" class="checkmark-image">
+                    </a>    
+                {% else %}
+                    <a href="{% url 'watch' item.id %}">
+                        <img src="{% static "auctions/images/mark_unchecked.png" %}" class="checkmark-image">
+                    </a>    
+                {% endif %}
+
+                <br>                
+
+                <p>Name: {{item.title}}</p>
+                <p>Description: {{item.description}}</p>
+                <p>Owner: {{item.owner}}</p>
+                <p>Category: {{item.category}}</p>
+                <p>Price: {{item.price}}</p>
+
+                {% if item.active %}
+                    <span>Status: </span> <span class="available-p">Available</span>
+                {% else %}
+                    <span>Status: </span> <span class="not-available-p">Not available</span>
+                {% endif %}
+
+                <p>Posted at: {{item.created_at}}</p>
+                <p>Last updated at: {{bid.created_at}}</p>
+                <br>
+                {% if bid.user == user %}
+                    {% if item.active %}
+                        <p class="bid-counter">{{item.bid_counter}} Bid(s) total!</p>
+                        Your bid is current!
+                    {% else %}
+                    <p class="bid-counter">{{item.bid_counter}} Bid(s) so far</p>
+                        Congrats {{bid.user}}!
+                    {% endif %}
+                {% else %}
+                <p class="bid-counter">{{item.bid_counter}} Bid(s) so far</p>
+                {% endif %}
+
+                {% if item.owner == user %}
+                    <form action="{% url 'close_bid' item.id %}" method="POST">
+                        {% csrf_token %}
+                    
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                                <button class="btn btn-outline-secondary bg-danger text-light" type="submit">Close Bid
+                                </button>
+                            </div>
+                            <input disabled type="text" class="form-control"
+                                   placeholder="Last bid: {{ bid.user }} (${{ bid.amount }})">
+                        </div>
+                    </form>
+                {% else %}
+                    {% if item.winner%}
+                        {% if bid.user == user %}
+                            Winner!
+                        {% else %}
+                            Lot sold!
+                        {% endif %}
+                    {% else %}
+                        <form class="bid-form" action="{% url 'update_bid' item.id %}" method="post">
+                            {% csrf_token %}
+                            <input required type='number' class="bid-input" placeholder="Current bid: {{bid.amount}}" min="0.1" max="999999999999" step="0.1" name="bid" id="bid_id">
+                            <input type="submit" class="bid-button" value="Bid Now!">
+                        </form>
+                    {% endif %}
+                {% endif %}
+
+                <br>
+                <hr>
+                <h1>Comments</h1>
+                <br>
+                {% if comments %}
+                    {% for comment in comments %}
+                        <p>{{comment.text}}</p>
+                        <span class='username-label'>{{comment.user}}</span> 
+                        <span class="comment-date-label">{{comment.created_at}}</span>
+                        <hr>
+                        <br>
+                    {% endfor %}
+                {% else %}
+                    No comments yet.
+                {% endif %}
+                <br><br><br>
+                <form action="{% url 'add_comment' item.id %}" class="form-group" method="POST">
+                    {% csrf_token %}
+                    {{comment_form}}
+                    <input type="submit" class="comment-form-submit">
+                </form>
+            </div>
+    </div>
+
+{% endblock main %}

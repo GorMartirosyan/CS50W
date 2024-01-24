@@ -1,0 +1,93 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.header {
+    color: white;
+    padding: 10px;
+    background-color: brown;
+}
+
+.navigation {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    display: flex;
+    gap: 24px;
+}
+
+.menu a {
+    color: white;
+    font-size: 24px;
+    transition-duration: 0.3s;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid transparent;
+}
+
+.menu a:hover {
+    border: solid 1px rgb(255, 255, 255);
+}
+
+/* dropdown */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding: 10px;
+}
+
+/* Style the button that is used to open the dropdown */
+.dropbtn {
+    background-color: brown;
+    color: white;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    width: 160px;
+    text-align: center;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Style the dropdown items */
+.dropdown-content a {
+    color: black;
+    padding: 12px 0px;
+    text-decoration: none;
+    display: block;
+    text-align: center;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.watchlist-counter {
+    width: 50px !important;
+    height: 20px !important;
+    background-color: white;
+    color: brown;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
+}

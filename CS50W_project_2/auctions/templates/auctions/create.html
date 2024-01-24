@@ -1,0 +1,22 @@
+{% extends "auctions/base.html" %}
+{% load static %}
+
+<!--************ Title ************-->
+{% block title %}
+    Create Listing
+{% endblock title %}
+
+<!--************ CSS ************-->
+{% block css %} 
+    {% static "auctions/css/create.css" %}
+{% endblock css %}
+
+<!--************ Body ************-->
+{% block main %}
+    <h1>Create Listing</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" class="form-submit">
+    </form>
+{% endblock main %}
