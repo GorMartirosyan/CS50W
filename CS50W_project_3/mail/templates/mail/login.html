@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mail/css/login.css' %}">
+    <title>Log in</title>
+</head>
+<body>
+    <h1>Log in</h1>
+    
+    {% if message %}
+        <div>{{ message }}</div>
+    {% endif %}
+
+    <form action="{% url 'login' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <input autofocus type="email" name="email" placeholder="Email">
+        </div>
+
+        <div>
+            <input type="password" name="password" placeholder="Password">
+        </div>
+
+        <input type="submit" value="Login">
+    </form>
+
+    Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+</body>
+</html>

@@ -1,0 +1,33 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'mail/css/base.css' %}">
+    <link rel="stylesheet" href="{% block css %}{% endblock css %}">
+    <script src="{% block js %}{% endblock js %}"></script>
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+
+<body>
+    <header>
+        <h1>{{email}}</h1>
+        <nav class="navigation">
+            <a id="inbox">Inbox</a>
+            <a id="compose">Compose</a>
+            <a id="sent">Sent</a>
+            <a id="archived">Archived</a>
+            <a href="{% url 'logout' %}">Log out</a>
+        </nav>
+        <br><hr class="divider"><br>
+    </header>
+
+    <main> 
+        {% block main %}{% endblock main %} 
+    </main>
+
+</body>
+
+</html>

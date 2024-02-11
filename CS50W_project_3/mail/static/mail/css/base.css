@@ -1,0 +1,34 @@
+*{
+    margin: 5px;
+    padding: 0px;
+}
+.navigation{
+    margin-top: 10px;
+}
+
+.navigation a {
+    font-family: "Lato", sans-serif;
+    border: 1px solid #4A90E2;
+    border-color: #4A90E2;
+    border-radius: 3px;
+    color: #4A90E2;
+    text-decoration: none;
+    transition-duration: 0.3s;
+    margin: 0px;
+    padding: 5px;
+    font-size: 13px;
+}
+
+.navigation a:hover {
+    background-color: #4A90E2;
+    color: white;
+    cursor: pointer;
+}
+
+.divider{
+    border: none;
+    border-top: 3px solid gray;
+    border-radius: 5px;
+    outline: none;
+    box-shadow: none;
+}
